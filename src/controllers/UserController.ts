@@ -1,6 +1,7 @@
 import { Request, Response } from "express";
 import { User } from "../entities/User";
 import { userRepository } from "../repositories/userRepository";
+import bcrypt from "bcrypt";
 
 export class UserController {
   async index(req: Request, res: Response) {
@@ -18,8 +19,23 @@ export class UserController {
   async create(req: Request, res: Response) {
     const { name, email, apartment, password } = req.body;
 
-    const user = userRepository.create({ name, email, apartment, password });
-    await userRepository.save(user);
+    const userExists = await userRepository.findOneBy({ email });
+
+    if (userExists) {
+      return res.status(400).json({ message: "Usuário já existe" });
+    }
+
+    const hashPassword = await bcrypt.hash(password, 10);
+
+    const newUser = userRepository.create({
+      name,
+      email,
+      apartment,
+      password: hashPassword,
+    });
+
+    await userRepository.save(newUser);
+    const { password: _, ...user } = newUser;
 
     return res
       .status(201)
