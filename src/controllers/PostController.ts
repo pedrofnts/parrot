@@ -4,6 +4,21 @@ import { postRepository } from "../repositories/postRepository";
 import { userRepository } from "../repositories/userRepository";
 
 export class PostController {
+  async index(req: Request, res: Response) {
+    const posts = await postRepository.find();
+    return res.status(200).json(posts);
+  }
+  async show(req: Request, res: Response) {
+    const { userId } = req.params;
+
+    const post = await postRepository.findOneBy({ id: parseInt(userId, 10) });
+
+    if (!post) {
+      throw new NotFoundError("Usuário não encontrado");
+    }
+
+    return res.status(200).json(post);
+  }
   async create(req: Request, res: Response) {
     const { content } = req.body;
     const { userId } = req.params;

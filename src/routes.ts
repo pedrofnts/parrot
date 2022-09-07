@@ -11,20 +11,22 @@ routes.get("/", (req, res) => {
   throw new AppError("Error message", 400);
 });
 
-routes.get("/profiles", new UserController().index);
-routes.post("/login", new authController().login);
+routes.post("/login", new authController().login); // Login
+routes.post("/register", new UserController().create); // Registro de Usuário// Recuperação de senha
 
 routes.use(authMiddleware);
 
-routes.get("/profile", new authController().getProfile);
-routes.get("/profile/:id", new UserController().show);
-routes.post("/profile/create", new UserController().create);
-routes.put("/profile/:id/edit", new UserController().update);
-routes.delete("/profile/:id/remove", new UserController().delete);
+routes.get("/profiles", new UserController().index); // Perfil de Usuários
+routes.get("/profile", new authController().getProfile); // Perfil Autenticado
+routes.get("/profile/:id", new UserController().show); // Perfil de Usuário
+routes.put("/profile/edit", new UserController().update); // Edição de Usuário
+routes.delete("/profile/:id/remove", new UserController().delete); // Remoção de Usuário
 
-routes.post("/profile/:userId/create", new PostController().create);
+routes.get("/feed", new PostController().index); // Feed de Posts
+routes.get("/profile/:userId/feed", new PostController().show); // Feed de Posts de Usuário
+routes.post("/profile/:userId/feed/new", new PostController().create); // Criação de Post
 routes.delete(
-  "/profile/:userId/post/:postId/remove",
+  "/profile/:userId/post/:postId/remove", // Remoção de Post
   new PostController().delete
 );
 

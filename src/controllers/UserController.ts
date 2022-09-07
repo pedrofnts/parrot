@@ -47,17 +47,23 @@ export class UserController {
   }
 
   async update(req: Request, res: Response) {
+    const id = req.user.id;
     const { name, email, apartment, password } = req.body;
 
-    const user = await userRepository.findOneBy({
-      id: parseInt(req.params.id, 10),
-    });
+    const user = await userRepository.findOneBy({ id });
 
     if (!user) {
       throw new NotFoundError("Usuário não encontrado");
     }
 
-    userRepository.merge(user, { name, email, apartment, password });
+    const hashPassword = await bcrypt.hash(password, 10);
+
+    userRepository.merge(user, {
+      name,
+      email,
+      apartment,
+      password: hashPassword,
+    });
     await userRepository.save(user);
 
     return res.json({ message: "Usuário atualizado com sucesso" });
