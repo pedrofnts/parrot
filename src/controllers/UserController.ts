@@ -14,6 +14,11 @@ export class UserController {
     const user = await userRepository.findOneBy({
       id: parseInt(req.params.id, 10),
     });
+
+    if (!user) {
+      throw new NotFoundError("Usuário não encontrado");
+    }
+
     return res.json(user);
   }
 
@@ -23,7 +28,7 @@ export class UserController {
     const userExists = await userRepository.findOneBy({ email });
 
     if (userExists) {
-      throw new BadRequestError("Usuário já cadastrado");
+      throw new BadRequestError("E-mail já cadastrado");
     }
 
     const hashPassword = await bcrypt.hash(password, 10);
@@ -38,9 +43,7 @@ export class UserController {
     await userRepository.save(newUser);
     const { password: _, ...user } = newUser;
 
-    return res
-      .status(201)
-      .json(`O usuário ${user.name} foi criado com sucesso`);
+    return res.status(201).json(`Usuário ${user.name} cadastrado com sucesso`);
   }
 
   async update(req: Request, res: Response) {
