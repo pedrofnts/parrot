@@ -1482,7 +1482,7 @@ type-is@~1.6.18:
 
 typeorm-extension@^2.1.10:
   version "2.1.10"
-  resolved "https://registry.npmjs.org/typeorm-extension/-/typeorm-extension-2.1.10.tgz"
+  resolved "https://registry.yarnpkg.com/typeorm-extension/-/typeorm-extension-2.1.10.tgz#3fe0b67bf9a873dd93255c84e2ffc4bfaf663ad6"
   integrity sha512-yH9KiBnUKpJQzCapgVlzoswM3y6BLl/LJxeQV2xNINNcx7L4Dl04/jMVXoANpCE92kWBcnfRPsLxCKiWksQpPw==
   dependencies:
     "@faker-js/faker" "^7.5.0"
