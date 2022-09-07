@@ -33,7 +33,6 @@ export class authController {
   async getProfile(req: Request, res: Response) {
     return res.json(req.user);
   }
-
   async changePassword(req: Request, res: Response) {
     const { oldPassword, newPassword } = req.body;
 
