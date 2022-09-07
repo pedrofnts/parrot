@@ -1,3 +1,4 @@
+import { BadRequestError, NotFoundError } from "./../helpers/AppErrors";
 import { Request, Response } from "express";
 import { User } from "../entities/User";
 import { userRepository } from "../repositories/userRepository";
@@ -22,7 +23,7 @@ export class UserController {
     const userExists = await userRepository.findOneBy({ email });
 
     if (userExists) {
-      return res.status(400).json({ message: "Usuário já existe" });
+      throw new BadRequestError("Usuário já cadastrado");
     }
 
     const hashPassword = await bcrypt.hash(password, 10);
@@ -50,7 +51,7 @@ export class UserController {
     });
 
     if (!user) {
-      return res.status(404).json({ message: "Usuário não encontrado" });
+      throw new NotFoundError("Usuário não encontrado");
     }
 
     userRepository.merge(user, { name, email, apartment, password });
@@ -65,7 +66,7 @@ export class UserController {
     });
 
     if (!user) {
-      return res.status(404).json({ message: "Usuário não encontrado" });
+      throw new BadRequestError("Usuário não encontrado");
     }
 
     await userRepository.remove(user);

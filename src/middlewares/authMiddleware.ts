@@ -1,3 +1,4 @@
+import { UnauthorizedError, NotFoundError } from "./../helpers/AppErrors";
 import { NextFunction, Response, Request } from "express";
 import { userRepository } from "../repositories/userRepository";
 import jwt from "jsonwebtoken";
@@ -10,7 +11,7 @@ export const authMiddleware = async (
   const { authorization } = req.headers;
 
   if (!authorization) {
-    return res.status(401).json({ message: "Não autorizado" });
+    throw new UnauthorizedError("Não autorizado");
   }
 
   const token = authorization.replace("Bearer", "").trim();
@@ -22,7 +23,7 @@ export const authMiddleware = async (
   const user = await userRepository.findOneBy({ id });
 
   if (!user) {
-    return res.status(404).json({ message: "Não autorizado" });
+    throw new NotFoundError("Usuário não encontrado");
   }
 
   const { password: _, ...userWithoutPassword } = user;

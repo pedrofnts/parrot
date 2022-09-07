@@ -1,8 +1,10 @@
+import { NotFoundError } from "./../helpers/AppErrors";
 import { Request, Response } from "express";
 import { User } from "../entities/User";
 import { userRepository } from "../repositories/userRepository";
 import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
+import { BadRequestError } from "../helpers/AppErrors";
 
 export class authController {
   async login(req: Request, res: Response) {
@@ -11,13 +13,13 @@ export class authController {
     const user = await userRepository.findOneBy({ email });
 
     if (!user) {
-      return res.status(404).json({ message: "E-mail inválido" });
+      throw new NotFoundError("E-mail inválido");
     }
 
     const passwordMatch = await bcrypt.compare(password, user.password);
 
     if (!passwordMatch) {
-      return res.status(401).json({ message: "Senha incorreta" });
+      throw new BadRequestError("Senha inválida");
     }
 
     const token = jwt.sign({ id: user.id }, process.env.JWT_PASS ?? "", {
