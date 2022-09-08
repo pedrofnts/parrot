@@ -1,5 +1,5 @@
 import bcrypt from "bcrypt";
-import { userRepository } from "./../repositories/userRepository";
+import { userRepository } from "../../../repositories/userRepository";
 import { DataSource } from "typeorm";
 import { Seeder, SeederFactoryManager } from "typeorm-extension";
 import { User } from "../entities/User";

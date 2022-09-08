@@ -1,4 +1,4 @@
-import { MainSeeder } from "./seeds/MainSeeder";
+import { MainSeeder } from "./infrastructure/database/seeds/MainSeeder";
 import "dotenv/config";
 import "reflect-metadata";
 import { DataSourceOptions } from "typeorm";
@@ -15,8 +15,8 @@ const options: DataSourceOptions & SeederOptions = {
   username: process.env.DB_USER,
   password: process.env.DB_PASS,
   database: process.env.DB_NAME,
-  entities: [`${__dirname}/**/entities/*.{ts,js}`],
-  migrations: [`${__dirname}/**/migrations/*.{ts,js}`],
+  entities: [`${__dirname}/**/infrastructure/database/entities/*.{ts,js}`],
+  migrations: [`${__dirname}/**/infrastructure/database/migrations/*.{ts,js}`],
   seeds: [MainSeeder],
 };
 
