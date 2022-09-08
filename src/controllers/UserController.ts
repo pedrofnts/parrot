@@ -1,6 +1,6 @@
 import { BadRequestError, NotFoundError } from "./../helpers/AppErrors";
 import { Request, Response } from "express";
-import { User } from "../entities/User";
+import { User } from "../infrastructure/database/entities/User";
 import { userRepository } from "../repositories/userRepository";
 import bcrypt from "bcrypt";
 
@@ -53,7 +53,7 @@ export class UserController {
     const user = await userRepository.findOneBy({ id });
 
     if (!user) {
-      throw new NotFoundError("Usuário não encontrado");
+      throw new NotFoundError("Perfil não encontrado");
     }
 
     const hashPassword = await bcrypt.hash(password, 10);
@@ -66,13 +66,13 @@ export class UserController {
     });
     await userRepository.save(user);
 
-    return res.json({ message: "Usuário atualizado com sucesso" });
+    return res.json({ message: "Perfil atualizado com sucesso" });
   }
 
   async delete(req: Request, res: Response) {
-    const user = await userRepository.findOneBy({
-      id: parseInt(req.params.id, 10),
-    });
+    const id = req.user.id;
+
+    const user = await userRepository.findOneBy({ id });
 
     if (!user) {
       throw new BadRequestError("Usuário não encontrado");
@@ -80,6 +80,6 @@ export class UserController {
 
     await userRepository.remove(user);
 
-    return res.json({ message: "Usuário removido com sucesso" });
+    return res.json({ message: "Perfil removido com sucesso" });
   }
 }

@@ -1,6 +1,6 @@
 import { NotFoundError } from "./../helpers/AppErrors";
 import { Request, Response } from "express";
-import { User } from "../entities/User";
+import { User } from "../infrastructure/database/entities/User";
 import { userRepository } from "../repositories/userRepository";
 import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
@@ -32,28 +32,5 @@ export class authController {
   }
   async getProfile(req: Request, res: Response) {
     return res.json(req.user);
-  }
-  async changePassword(req: Request, res: Response) {
-    const { oldPassword, newPassword } = req.body;
-
-    const user = await userRepository.findOneBy({ id: req.user.id });
-
-    if (!user) {
-      throw new NotFoundError("Usuário não encontrado");
-    }
-
-    const passwordMatch = await bcrypt.compare(oldPassword, user.password);
-
-    if (!passwordMatch) {
-      throw new BadRequestError("Senha incorreta");
-    }
-
-    const hashPassword = await bcrypt.hash(newPassword, 10);
-
-    userRepository.merge(user, { password: hashPassword });
-
-    await userRepository.save(user);
-
-    return res.json("Senha alterada com sucesso");
   }
 }

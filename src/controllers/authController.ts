@@ -1,6 +1,6 @@
 import { NotFoundError } from "./../helpers/AppErrors";
 import { Request, Response } from "express";
-import { User } from "../entities/User";
+import { User } from "../infrastructure/database/entities/User";
 import { userRepository } from "../repositories/userRepository";
 import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
