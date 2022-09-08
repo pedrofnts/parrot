@@ -12,8 +12,8 @@ export class UserSeeder implements Seeder {
     const userRepository = dataSource.getRepository(User);
 
     const userData = {
-      name: "Pedro Fontes",
-      email: "pedro7fontes@gmail.com",
+      name: "administrator",
+      email: "administrator@parrot.com",
       apartment: 2,
       password: await bcrypt.hash("123456", 10),
     };
@@ -28,3 +28,4 @@ export class UserSeeder implements Seeder {
     }
   }
 }
+
