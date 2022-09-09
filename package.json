@@ -41,5 +41,7 @@
     "typeorm": "^0.3.9",
     "typeorm-extension": "^2.1.10"
   },
-  "author": "Pedro Fontes <pedro7fontes@gmail.com>"
+  "author": "Pedro Fontes <pedro7fontes@gmail.com>",
+  "co-author:": "Victor Nery <victorcndp@gmail.com>"
+
 }
