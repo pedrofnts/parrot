@@ -1,4 +1,4 @@
-# HandsOn4
+# PARROT
 
 <p align="center">
 <a href="https://insomnia.rest/run/?label=Parrot&uri=https%3A%2F%2Fraw.githubusercontent.com%2FNeryVictor%2Fparrot%2Fmain%2F.docs%2FInsomnia_2022-09-09.json" target="_blank"><img src="https://insomnia.rest/images/run.svg" alt="Run in Insomnia"></a>
@@ -17,21 +17,17 @@
 
 🖥️ Project
 ===============
-O Projeto foi desenvolvido pelo time do bootcamp da Gama Academy #XP43, 4 colaboradores das stack's front-end e back-end.
-Onde a integração do grupo a comunicação foi bem alinhada para que o projeto e as demandas cumprissem os prazos.
+XP43 bootcamp project.
+API for a condominium social network.
 
  
 ✨ Client
 ===============
-A rede social Parrot é um sistema white label (ou seja, um sistema modelo criado por
-uma empresa que pode ser reutilizado por outras, apenas modificando informações
-como logo e marca) do qual condomínios podem contratar para incentivar a interação
-entre os moradores.
-A plataforma permite que os usuários façam publicações que ficam visíveis para toda
-comunidade.
 
+The Parrot social network is a white label system for condominiums, to encourage interaction among the residents<br>
+The platform allows users to make publications for the entire community.
 
-![Parrot](/docs/logoColor.png)
+![Parrot]
 
 🏗️ Authors Back-End
 =================
@@ -43,86 +39,95 @@ comunidade.
 =================
 
 - [x] Bruno Andrade Lima de Araújo
-- [x] Pedro Arruda
+- [x] Pedro Arruda 
+
+Repository: https://github.com/Brunoalaraujo/HandsOnParrot.git
 
 📝 Features Created
 =====================
-* Buscar Usuários e Post's (individuais e totais)
-* Cadastrar Usuários e Post's
-* Editar Usuários
-* Excluir Usuários
+* Login (JWT Authentication)
+* User CRUD
+* Post CRUD
+* Test Routes
 
 🚀 Technology and Dependency used
 =================
-Este projeto foi desenvolvido com as seguintes tecnologias:
 
 <table>
 <tr>
-<td>NodeJS</td>
-<td>TypeScript</td>
-<td>TypeORM</td>
-<td>MySQL</td>
-<td>Conceitos Solid</td>
-<td>Express</td>
-<td>Express Validator</td>
-<td>JWT</td>
-</tr>
-
-<tr>
-<td>18.5.0</td>
-<td></td>
-<td></td>
-<td>6.21.3</td>
-<td></td>
-<td>6.14.2</td>
-<td>6.21.3</td>
-<td></td>
+<td>node</td>
+<td>typeorm</td>
+<td>typeorm-extension</td>
+<td>express</td>
+<td>mysql2</td>
+<td>bcrypt</td>
+<td>jest</td>
+<td>jsonwebtoken</td>
+<td>supertest</td>
+<td>reflect-metadata</td>
 </tr>
 </table>
-
-Para clonar e executar este aplicativo, você precisará do [Git](https://git-scm.com/), [Node.js](https://nodejs.org/en/), Express, Express-validator, [MySQL](https://www.mysql.com/) e + npm instalado em seu computador.
-É recomendado ter um editor para trabalhar com codigo como [VSCode](https://code.visualstudio.com/).
-
-#### Referencia de linha de comando:
 
 📚 How to use:
 =================
 
 ### Install API
 
-```bash
+To run this project locally, you'll need Git, Node and MySQL installed on your computer<br>
+After cloning project, remember to insert your local database credentials into .env
+
+
 # Clone this repository
+```
 $ git clone https://github.com/pedrofnts/parrot.git
-
+```
 # Install dependencies
+```
 $ yarn install
-
-# Start server
-$ yarn run dev
-
-# running on port 3000
+```
+# Config DB
 Configure the .env file with the port to be used and your DB credentials
 
-🎌 body of requisitions
+# Create DB
+```
+$ yarn db:create
+```
+# Generate Migration
+```
+$ yarn migration:generate
+```
+# Run Migration
+```
+$ yarn migration:run
+```
+# Create Seeds
+```
+$ yarn seed
+```
+# Start server
+```
+$ yarn run dev
+```
+
+
+📇 body requisitions
 =================
-* create user { "name": string, "email": string, "password": string, "apartment": int}
-* create post { "content": string }
+
+* create user 
+```
+{ "name": string, "email": string, "password": string, "apartment": number }
+```
+* create post 
+```
+{ "content": string }
+```
 
 
-🤔💭 How to contribute
-=================
+Made with 💚 by <br>
 
-- Faça um Fork;
- - Crie uma branch com seu recurso:  `git checkout -b my-feature`;
- - Alterações do commit: `git commit -m 'feat: My new feature'`;
- - Faça um push para seu branch: `git push origin my-feature`.
+🔹 Fabiana Boniolo de Oliveira 👋 [Get in touch](https://github.com/Fabi-Boniolo)<br>
+🔹 Pedro Fontes 👋 [Get in touch](https://github.com/pedrofnts)<br>
+🔹 Victor Nery 👋 [Get in touch](https://www.linkedin.com/in/neryvictor/)<br>
 
-Depois de mesclar sua solicitação de recebimento, você pode excluir a ramificação da sua.
-
-Made with 💚 by
-🧡 Fabiana Boniolo de Oliveira 👋 [Get in touch](https://github.com/Fabi-Boniolo)
-💙Pedro Fontes 👋 [Get in touch](https://github.com/pedrofnts)
-💛Victor Nery 👋 [Get in touch](https://www.linkedin.com/in/neryvictor/)
-
-💙 Bruno Andrade Lima de Araújo 👋 [Get in touch](https://github.com/Brunoalaraujo)
-🧡 Pedro Arruda 👋 [Get in touch](https://github.com/PedroRArruda)
+🔸 Bruno Andrade Lima de Araújo 👋 [Get in touch](https://github.com/Brunoalaraujo)<br>
+🔸 Pedro Arruda 👋 [Get in touch](https://github.com/PedroRArruda)<br>
