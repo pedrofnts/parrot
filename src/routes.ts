@@ -24,5 +24,6 @@ routes.delete("/profile/delete", new UserController().delete); // Remoção de U
 
 routes.get("/feed", new PostController().index); // Feed de Posts
 routes.post("/profile/newpost", new PostController().create); // Criação de Post
+routes.delete("/feed/:id/delete", new PostController().delete); // Remoção de Post
 
 export default routes;

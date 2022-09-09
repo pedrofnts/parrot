@@ -44,15 +44,15 @@ export class PostController {
   }
 
   async delete(req: Request, res: Response) {
-    const { userId } = req.params;
+    const id = req.params.id;
 
-    const post = await postRepository.findOneBy({ id: parseInt(userId, 10) });
+    const post = await postRepository.findOneBy({ id: parseInt(id, 10) });
 
     if (!post) {
       throw new NotFoundError("Post não encontrado");
     }
 
     await postRepository.delete(post);
-    return res.status(200).json("Post deletado com sucesso");
+    return res.status(200).json("Post deletado com sucesso!");
   }
 }
