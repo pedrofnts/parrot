@@ -7,7 +7,9 @@ import { postRepository } from "../repositories/postRepository";
 
 export class UserController {
   async index(req: Request, res: Response) {
-    const users = await userRepository.find();
+    const users = await userRepository.find({
+      select: ["id", "name", "apartment"],
+    });
     return res.json(users);
   }
 
