@@ -3,6 +3,7 @@ import { Request, Response } from "express";
 import { User } from "../infrastructure/database/entities/User";
 import { userRepository } from "../repositories/userRepository";
 import bcrypt from "bcrypt";
+import { postRepository } from "../repositories/postRepository";
 
 export class UserController {
   async index(req: Request, res: Response) {
@@ -19,7 +20,13 @@ export class UserController {
       throw new NotFoundError("Usuário não encontrado");
     }
 
-    return res.json(user);
+    const profile = await userRepository.find({
+      relations: ["posts"],
+      where: { id: user.id },
+      select: { id: true, name: true, apartment: true },
+    });
+
+    return res.json({ profile });
   }
 
   async create(req: Request, res: Response) {
