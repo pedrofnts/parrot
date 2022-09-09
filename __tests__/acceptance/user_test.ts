@@ -22,7 +22,6 @@ it("deveria listar todos os usuários", async () => {
     .get("/profiles")
     .set("Authorization", `Bearer ${token}`);
   expect(response.status).toBe(200);
-  expect(response.body.length).toBe(2);
 });
 
 it("deveria editar um usuário", async () => {
