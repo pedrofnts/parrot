@@ -18,16 +18,11 @@ routes.use(authMiddleware);
 
 routes.get("/profiles", new UserController().index); // Listar Usuários
 routes.get("/profile", new authController().getProfile); // Perfil Autenticado
-routes.get("/profile/:id", new UserController().show); // Perfil de Usuário
+routes.get("/profile/:id", new UserController().show); // Perfil do Usuário
 routes.put("/profile/edit", new UserController().update); // Edição de Usuário
 routes.delete("/profile/delete", new UserController().delete); // Remoção de Usuário
 
 routes.get("/feed", new PostController().index); // Feed de Posts
-routes.get("/profile/:userId/feed", new PostController().show); // Feed de Posts de Usuário
 routes.post("/profile/newpost", new PostController().create); // Criação de Post
-routes.delete(
-  "/profile/post/:postId/remove", // Remoção de Post
-  new PostController().delete
-);
 
 export default routes;
