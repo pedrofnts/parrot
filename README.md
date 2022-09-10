@@ -5,7 +5,7 @@
 
 <h1 align="center">Parrot</h1>
 
-<p align="center">This project consists of an API for a condominium social network white label system.</p>
+<p align="center">This project consists of an API for a Twitter-like social network white label system.</p>
 <p align="center"><a href="https://insomnia.rest/run/?label=Parrot&uri=https%3A%2F%2Fraw.githubusercontent.com%2FNeryVictor%2Fparrot%2Fmain%2F.docs%2FInsomnia_2022-09-09.json" target="_blank"><img src="https://insomnia.rest/images/run.svg" alt="Run in Insomnia"></a>
 </a></p>
 
