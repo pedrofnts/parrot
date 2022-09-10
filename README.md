@@ -1,23 +1,14 @@
-# PARROT
+<div>
+  <img src="https://user-images.githubusercontent.com/90655270/161388302-145d58d6-723a-4dc1-97e7-80133dfa4c3a.png" width="100px">
+  <img alt="Stack Hacker" src="https://img.shields.io/static/v1?label=stack&message=hacker&color=success&labelColor=grey">
+</div>
 
-<p align="center">
-<a href="https://insomnia.rest/run/?label=Parrot&uri=https%3A%2F%2Fraw.githubusercontent.com%2FNeryVictor%2Fparrot%2Fmain%2F.docs%2FInsomnia_2022-09-09.json" target="_blank"><img src="https://insomnia.rest/images/run.svg" alt="Run in Insomnia"></a>
-</p>
+<h1 align="center">Parrot</h1>
 
-<p align="center"> 
-<a href= "#-Project">Project</a> &#160; |&#160;
-<a href= "#-Client">Client</a>  &#160; |&#160;
-<a href= "#-Authors">Authors</a>  &#160; |&#160;
-<a href= "#-Features Created">Features Created</a>  &#160; |&#160;
-<a href= "#-Technology and Dependency used">Technology and Dependency used</a> &#160; |&#160;
-<a href= "#-How to use">How to use</a> &#160; |&#160;
-<a href= "#-Optional Features ">Optional Features </a> &#160; |&#160;
-<a href= "#-How to contribute">How to contribute</a>
-</p>
+<p align="center">This project consists of an API for a condominium social network white label system.</p>
+<p align="center"><a href="https://insomnia.rest/run/?label=Parrot&uri=https%3A%2F%2Fraw.githubusercontent.com%2FNeryVictor%2Fparrot%2Fmain%2F.docs%2FInsomnia_2022-09-09.json" target="_blank"><img src="https://insomnia.rest/images/run.svg" alt="Run in Insomnia"></a>
+</a></p>
 
-🖥️ Project
-===============
-Social network API from Gama Academy's XP43.
 
  
 ✨ Client
@@ -26,7 +17,6 @@ Social network API from Gama Academy's XP43.
 Parrot is a white label system for condominiums, to encourage interaction among the residents.<br>
 The platform allows users to make publications for the entire community.
 
-![Parrot]
 
 🏗️ Back-end authors
 =================
@@ -100,14 +90,14 @@ $ yarn run dev
 
 
 # running on port 3000
+```
 
-
-📇 body requisitions
+📇 Body requisitions
 =================
 
 * create user 
 ```
-{ "name": string, "email": string, "password": string, "apartment": number }
+{ "name": string, "email": string, "apartment": number, "password": string }
 ```
 * create post 
 ```
