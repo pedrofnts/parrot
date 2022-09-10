@@ -17,25 +17,24 @@
 
 🖥️ Project
 ===============
-XP43 bootcamp project.
-API for a condominium social network.
+Social network API from Gama Academy's XP43.
 
  
 ✨ Client
 ===============
 
-The Parrot social network is a white label system for condominiums, to encourage interaction among the residents<br>
+Parrot is a white label system for condominiums, to encourage interaction among the residents.<br>
 The platform allows users to make publications for the entire community.
 
 ![Parrot]
 
-🏗️ Authors Back-End
+🏗️ Back-end authors
 =================
 - [x] Fabiana Boniolo de Oliveira
 - [x] Pedro Fontes
 - [x] Victor César Nery da Paixão 
 
-🏗️ Authors Front-End
+🏗️ Front-end authors
 =================
 
 - [x] Bruno Andrade Lima de Araújo
@@ -46,11 +45,11 @@ Repository: https://github.com/Brunoalaraujo/HandsOnParrot.git
 📝 Features Created
 =====================
 * Login (JWT Authentication)
-* User CRUD
-* Post CRUD
-* Test Routes
+* Users CRUD
+* Posts CRUD
 
-🚀 Technology and Dependency used
+
+🚀 Techs
 =================
 
 <table>
@@ -59,7 +58,7 @@ Repository: https://github.com/Brunoalaraujo/HandsOnParrot.git
 <td>typeorm</td>
 <td>typeorm-extension</td>
 <td>express</td>
-<td>mysql2</td>
+<td>mysql</td>
 <td>bcrypt</td>
 <td>jest</td>
 <td>jsonwebtoken</td>
@@ -68,46 +67,39 @@ Repository: https://github.com/Brunoalaraujo/HandsOnParrot.git
 </tr>
 </table>
 
-📚 How to use:
-=================
+## Local Project
 
-### Install API
+To run this project locally, you'll need Git, Node and MySQL installed on your computer. 
 
-To run this project locally, you'll need Git, Node and MySQL installed on your computer<br>
-After cloning project, remember to insert your local database credentials into .env
+After cloning project, remember to insert your local database credentials into /.env.
 
-
+```bash
 # Clone this repository
-```
 $ git clone https://github.com/pedrofnts/parrot.git
-```
-# Install dependencies
-```
-$ yarn install
-```
-# Config DB
-Configure the .env file with the port to be used and your DB credentials
 
-# Create DB
-```
+# Go into the repository
+$ cd parrot
+
+# Install dependencies
+$ yarn install
+
+# Create database
 $ yarn db:create
-```
-# Generate Migration
-```
+
+# Generate migrations
 $ yarn migration:generate
-```
-# Run Migration
-```
+
+# Run migrations
 $ yarn migration:run
-```
-# Create Seeds
-```
+
+# Add seeds
 $ yarn seed
-```
-# Start server
-```
+
+# Run server
 $ yarn run dev
-```
+
+
+# running on port 3000
 
 
 📇 body requisitions
